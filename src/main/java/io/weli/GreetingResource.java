@@ -1,7 +1,10 @@
 package io.weli;
 
+import io.quarkus.panache.common.Page;
 import io.weli.db.User;
+import org.jboss.logging.Logger;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -27,12 +30,24 @@ public class GreetingResource {
         return "Q: " + q;
     }
 
+    @Inject
+    Logger logger;
+
     @GET
     @Path("/page")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> page(@QueryParam("page") String page, @QueryParam("page_size") String page_size) {
-        List users = new ArrayList();
-        users.add(new User());
-        return users;
+    public UsersWithTotalPage page(@QueryParam("page") String page, @QueryParam("page_size") String page_size) {
+        var query = User.findAll().page(Page.of(Integer.parseInt(page), Integer.parseInt(page_size)));
+        var users = query.list();
+        var totalPage = query.pageCount();
+        var response = new UsersWithTotalPage();
+        var userNames = new ArrayList<String>();
+        for (Object user : users) {
+            logger.info("User -> " + user);
+            userNames.add(((User) user).getName());
+        }
+        response.setUsers(userNames);
+        response.setTotalPage(totalPage);
+        return response;
     }
 }
