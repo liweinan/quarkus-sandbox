@@ -1,18 +1,12 @@
 package io.weli;
 
+import io.weli.db.User;
+
 import java.util.List;
 
 public class UsersWithTotalPage {
-    public List<String> users;
+    public List<Object> users;
     public int totalPage;
-
-    public List<String> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<String> users) {
-        this.users = users;
-    }
 
     public int getTotalPage() {
         return totalPage;
@@ -20,5 +14,13 @@ public class UsersWithTotalPage {
 
     public void setTotalPage(int totalPage) {
         this.totalPage = totalPage;
+    }
+
+    public List<Object> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Object> users) {
+        this.users = users;
     }
 }

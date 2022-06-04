@@ -11,6 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Path("/")
@@ -41,12 +42,7 @@ public class GreetingResource {
         var users = query.list();
         var totalPage = query.pageCount();
         var response = new UsersWithTotalPage();
-        var userNames = new ArrayList<String>();
-        for (Object user : users) {
-            logger.info("User -> " + user);
-            userNames.add(((User) user).getName());
-        }
-        response.setUsers(userNames);
+        response.setUsers(Collections.singletonList(users));
         response.setTotalPage(totalPage);
         return response;
     }
