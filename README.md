@@ -10,6 +10,53 @@ weli@ovpn-12-129:~/w/code-with-quarkus|main⚡*?
 ➤                                                                      23:28:43
 ```
 
+```bash
+➤ quarkus ext list -i -s hibernate
+Current Quarkus extensions installable: 
+
+✬ ArtifactId                                         Extension Name
+✬ blaze-persistence-integration-quarkus              Blaze-Persistence
+✬ quarkus-agroal                                     Agroal - Database connection pool
+✬ quarkus-hibernate-envers                           Hibernate Envers
+✬ quarkus-hibernate-orm                              Hibernate ORM
+✬ quarkus-hibernate-orm-panache                      Hibernate ORM with Panache
+✬ quarkus-hibernate-orm-panache-kotlin               Hibernate ORM with Panache and Kotlin
+✬ quarkus-hibernate-orm-rest-data-panache            REST resources for Hibernate ORM with Panache
+✬ quarkus-hibernate-reactive                         Hibernate Reactive
+✬ quarkus-hibernate-reactive-panache                 Hibernate Reactive with Panache
+✬ quarkus-hibernate-reactive-rest-data-panache       REST resources for Hibernate Reactive with Panache
+✬ quarkus-hibernate-search-orm-coordination-outb...  Hibernate Search Coordination with Outbox Polling
+✬ quarkus-hibernate-search-orm-elasticsearch         Hibernate Search + Elasticsearch
+  quarkus-hibernate-search-orm-elasticsearch-aws     Hibernate Search + Elasticsearch - AWS authentication and request signing
+  quarkus-hibernate-types                            Quarkus - Hibernate Types - Runtime
+✬ quarkus-hibernate-validator                        Hibernate Validator
+✬ quarkus-narayana-jta                               Narayana JTA - Transaction manager
+  quarkus-renarde                                    Renarde
+```
+
+
+```bash
+➤ quarkus ext add quarkus-hibernate-orm-panache                                                                                                                                                                                                                                                                 23:37:41
+[SUCCESS] ✅  Extension io.quarkus:quarkus-hibernate-orm-panache has been installed
+```
+
+```bash
+➤ quarkus ext add quarkus-jdbc-h2                                                                                                                                                                                                                                                                               23:38:18
+[SUCCESS] ✅  Extension io.quarkus:quarkus-jdbc-h2 has been installed
+```
+
+```bash
+➤ quarkus ext add quarkus-jdbc-postgres                                                                                                                                                                                                                                                                         23:53:17
+[SUCCESS] ✅  Extension io.quarkus:quarkus-jdbc-postgresql has been installed
+weli@ovpn-12-129:~/w/code-with-quarkus|main⚡*?
+```
+
+
+```sql
+postgres=# create database quarkus_test owner weli;
+CREATE DATABASE
+```
+
 ---
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.

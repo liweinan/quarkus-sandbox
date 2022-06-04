@@ -1,4 +1,4 @@
-package org.acme;
+package io.weli;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
