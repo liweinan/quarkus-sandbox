@@ -37,7 +37,7 @@ public class GreetingResource {
     @Path("/page")
     @Produces(MediaType.APPLICATION_JSON)
     public UsersWithTotalPage page(@QueryParam("page") String page, @QueryParam("page_size") String page_size) {
-        var query = User.findAll().page(Page.of(Integer.parseInt(page), Integer.parseInt(page_size)));
+        var query = User.findAll().page(Page.of(Integer.parseInt(page) - 1, Integer.parseInt(page_size)));
         var users = query.list();
         var totalPage = query.pageCount();
         var response = new UsersWithTotalPage();
