@@ -1,5 +1,17 @@
 # code-with-quarkus Project
 
+```bash
+➤ curl 'http://localhost:8080/p?q=1'                                   23:28:35
+Q: 1⏎
+weli@ovpn-12-129:~/w/code-with-quarkus|main⚡*?
+➤ curl 'http://localhost:8080/p'                                       23:28:40
+Q: null⏎
+weli@ovpn-12-129:~/w/code-with-quarkus|main⚡*?
+➤                                                                      23:28:43
+```
+
+---
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
